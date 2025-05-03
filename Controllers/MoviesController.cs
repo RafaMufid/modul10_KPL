@@ -33,7 +33,7 @@ namespace modul10_103022300061.Controllers
         {
             if (id < 0 || id >= _movies.Count)
             {
-                return NotFound("Mahasiswa tidak ditemukan");
+                return NotFound("Movie not found");
             }
             return Ok(_movies[id]);
         }
@@ -44,7 +44,7 @@ namespace modul10_103022300061.Controllers
         {
             if (movie == null)
             {
-                return BadRequest("Attribute movie tidak boleh kosong.");
+                return BadRequest("Attribute in movie can't be empty.");
             }
             _movies.Add(movie);
             return CreatedAtAction(nameof(GetMovies), new {id = _movies.Count - 1}, movie);
@@ -56,7 +56,7 @@ namespace modul10_103022300061.Controllers
         {
             if (id < 0 || id >= _movies.Count)
             {
-                return NotFound("Movie tidak ditemukan");
+                return NotFound("Movie not found");
             }
             _movies.RemoveAt(id);
             return Ok(_movies);
